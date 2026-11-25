@@ -39,7 +39,8 @@ E1-1/
 - [x] 바인드 마운트 변경 반영
 - [x] named volume 영속성
 - [x] Git 사용자 설정, 로컬 저장소 커밋
-- [ ] GitHub 원격 저장소 연결 및 push, VS Code 연동 확인
+- [x] GitHub 원격 저장소 연결 및 push (<https://github.com/solarjina-geena/E1-1>)
+- [ ] VS Code GitHub 로그인 및 소스 제어 연동 확인
 
 ## 수행 로그 및 검증
 
@@ -367,12 +368,17 @@ git log --oneline
 
 ### GitHub 원격 저장소 연결
 
-GitHub에서 빈 저장소를 만든 뒤 아래처럼 연결하고 push합니다.
+2026-11-25, GitHub에서 빈 저장소 `E1-1`을 만든 뒤 연결하고 push했습니다.
 
 ```powershell
-git remote add origin <저장소-URL>
+git remote add origin https://github.com/solarjina-geena/E1-1.git
 git remote -v
+# origin  https://github.com/solarjina-geena/E1-1.git (fetch)
+# origin  https://github.com/solarjina-geena/E1-1.git (push)
 git push -u origin main
+# To https://github.com/solarjina-geena/E1-1.git
+#  * [new branch]      main -> main
+# branch 'main' set up to track 'origin/main'.
 ```
 
 - `git remote add origin`은 원격 저장소 주소에 `origin`이라는 이름을 붙입니다.
