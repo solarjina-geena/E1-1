@@ -286,7 +286,7 @@ ls -ld permission-dir
 
 ## 증거
 
-브라우저 캡처: [evidence/docker화면.png](evidence/docker화면.png)에는 초기 페이지가, [evidence/바인드 마운트 변경확인.png](evidence/바인드%20마운트%20변경확인.png)에는 호스트 파일 수정 후 반영된 제목이 `localhost:8081` 주소와 함께 보입니다. 빌드, 컨테이너 상태 및 HTTP 응답 결과도 수행 로그에 기록했습니다.
+브라우저 캡처: [evidence/docker화면.png](evidence/docker화면.png)에는 초기 페이지가, [evidence/바인드 마운트 변경확인.png](evidence/바인드%20마운트%20변경확인.png)에는 호스트 파일 수정 후 반영된 제목이 `localhost:8081` 주소와 함께 보입니다. [evidence/vscode-github.png](evidence/vscode-github.png)에는 VS Code 터미널에서 확인한 GitHub 원격 연결과 동기화 상태가 보입니다. 빌드, 컨테이너 상태 및 HTTP 응답 결과도 수행 로그에 기록했습니다.
 
 ## 트러블슈팅
 
@@ -397,6 +397,8 @@ git status
 # Your branch is up to date with 'origin/main'.
 # Untracked files: 과제1_개발자작업실_요약과진행가이드.md  (과제 안내 자료라 의도적으로 커밋하지 않음)
 ```
+
+VS Code 터미널 캡처: [evidence/vscode-github.png](evidence/vscode-github.png) (`safe.directory` 등록 후 `git remote -v`, `git status` 결과)
 
 `Your branch is up to date with 'origin/main'`은 로컬 `main`과 GitHub의 `origin/main`이 같은 커밋을 가리킨다는 뜻입니다. VS Code 소스 제어 패널(`Ctrl+Shift+G`)과 왼쪽 아래 상태 표시줄의 `main`으로도 같은 상태를 확인할 수 있습니다.
 
