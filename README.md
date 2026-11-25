@@ -40,7 +40,7 @@ E1-1/
 - [x] named volume 영속성
 - [x] Git 사용자 설정, 로컬 저장소 커밋
 - [x] GitHub 원격 저장소 연결 및 push (<https://github.com/solarjina-geena/E1-1>)
-- [ ] VS Code GitHub 로그인 및 소스 제어 연동 확인
+- [x] VS Code GitHub 로그인 및 소스 제어 연동 확인
 
 ## 수행 로그 및 검증
 
@@ -330,7 +330,7 @@ ls -ld permission-dir
   git config --global --add safe.directory E:/E1-1
   ```
 
-- 다시 확인한 결과: `git status`, `git log`가 정상 동작하고 브랜치 `main`, 기존 커밋 `docs: record developer workstation assignment`를 확인.
+- 다시 확인한 결과: VS Code 터미널에서 `git status`, `git remote -v`가 정상 동작하고 브랜치 `main`, 기존 커밋 `docs: record developer workstation assignment`를 확인.
 
 ## Git과 GitHub
 
@@ -384,7 +384,21 @@ git push -u origin main
 - `git remote add origin`은 원격 저장소 주소에 `origin`이라는 이름을 붙입니다.
 - `git push -u origin main`은 로컬 `main` 커밋을 GitHub로 올리고, 이후 `git push`/`git pull`의 기본 대상을 `origin/main`으로 지정합니다.
 - 인증은 Git Credential Manager의 브라우저 로그인으로 진행하며, 토큰/비밀번호/인증 코드는 README와 캡처에 넣지 않습니다.
-- VS Code에서 GitHub 계정으로 로그인하고 이 폴더를 열면 소스 제어 패널에 브랜치 `main`과 원격 `origin`이 표시됩니다.
+### VS Code 연동 확인
+
+VS Code에 GitHub 계정으로 로그인한 상태에서 `E:\E1-1` 폴더를 열고, VS Code 통합 터미널에서 확인했습니다. 처음에는 트러블슈팅 5번의 `dubious ownership` 오류가 나서 `safe.directory`를 등록한 뒤 다시 실행했습니다.
+
+```powershell
+git remote -v
+# origin  https://github.com/solarjina-geena/E1-1.git (fetch)
+# origin  https://github.com/solarjina-geena/E1-1.git (push)
+git status
+# On branch main
+# Your branch is up to date with 'origin/main'.
+# Untracked files: 과제1_개발자작업실_요약과진행가이드.md  (과제 안내 자료라 의도적으로 커밋하지 않음)
+```
+
+`Your branch is up to date with 'origin/main'`은 로컬 `main`과 GitHub의 `origin/main`이 같은 커밋을 가리킨다는 뜻입니다. VS Code 소스 제어 패널(`Ctrl+Shift+G`)과 왼쪽 아래 상태 표시줄의 `main`으로도 같은 상태를 확인할 수 있습니다.
 
 ## 최종 상태 점검
 
