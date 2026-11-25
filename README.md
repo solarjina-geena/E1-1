@@ -413,6 +413,30 @@ docker volume ls    # workstation-data (확인 후 docker volume rm으로 정리
 git status          # working tree clean
 ```
 
+2026-11-25 실제 정리 결과: Docker Desktop을 다시 켜자 이전에 실행했던 `workstation-web`, `workstation-bind`가 `Exited` 상태로 남아 있어 `docker rm`으로 삭제했습니다. `volume-test-2` 컨테이너와 `workstation-data` 볼륨은 이미 정리된 상태였습니다.
+
+```powershell
+docker rm workstation-bind workstation-web
+# workstation-bind
+# workstation-web
+
+docker ps -a
+# NAMES   IMAGE                     STATUS
+# n8n     docker.n8n.io/n8nio/n8n   Up 12 seconds    (과제와 무관한 기존 컨테이너, 유지)
+
+docker volume ls
+# (비어 있음)
+
+docker images
+# workstation-web:1.0   93.6MB
+# nginx:alpine          94.5MB
+# hello-world:latest    25.9kB
+# ubuntu:latest         163MB
+# (n8n 이미지 제외)
+```
+
+이미지는 README를 따라 다시 실행할 때 내려받는 시간을 줄이기 위해 남겨 두었습니다. 모두 지우려면 `docker rmi workstation-web:1.0 nginx:alpine hello-world ubuntu`를 실행합니다.
+
 ## 배운 점
 
 - **경로**: 절대 경로는 위치가 고정되어 어디서 실행해도 같은 대상을 가리키고, 상대 경로는 현재 위치에 따라 달라집니다. 폴더를 다른 드라이브로 옮겨도 상대 경로로 쓴 명령과 Dockerfile은 그대로 동작했습니다.
